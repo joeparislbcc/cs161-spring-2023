@@ -1,15 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode
 
-### Joe's Additions ###
-slides/demo.html
-slides/index.html
-slides/scratch.html
-grading/**
-*solution*
-*solution/**
-office_hours/**
-
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -202,3 +193,13 @@ pyrightconfig.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
+
+### Joe's Additions ###
+slides/demo.html
+slides/index.html
+slides/scratch.html
+!slides/dist
+grading/**
+*solution*
+*solution/**
+office_hours/**
