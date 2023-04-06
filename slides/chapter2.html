@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Chapter 2</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css">
+	<link rel="stylesheet" href="dist/custom.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Chapter 2</h1>
+				<h2>Control</h2>
+			</section>
+			<section>
+				<blockquote>
+					<p>
+						&ldquo;If you come to a fork in the <br> road, take it.&rdquo;
+					</p>
+
+					<p>&mdash; Yogi Berra</p>
+				</blockquote>
+			</section>
+			<section>
+				<h3>Selection</h3>
+			</section>
+			<section>
+				<div class="parent twoBy">
+					<div>
+						<figure>
+							<img src="images/figure-2-1.png" alt="sequential flow">
+							<figcaption>Sequential flow</figcaption>
+						</figure>
+					</div>
+					<div class="fragment">
+						<figure>
+							<img src="images/figure-2-2.png" alt="non-sequential flow">
+							<figcaption>Non-sequential flow</figcaption>
+						</figure>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h3>Booleans</h3>
+			</section>
+			<section>
+				<h3>The <code>if</code> statement</h3>
+			</section>
+			<section>
+				<h3>Indentation</h3>
+				<aside class="notes">Four spaces</aside>
+			</section>
+			<section>
+				<h3><a href="https://peps.python.org/pep-0008/" target="_blank">PEP 8</a></h3>
+				<aside class="notes">Python formatting conventions</aside>
+			</section>
+			<section>
+				<div class="parent threeBy">
+					<div>
+						<figure>
+							<pre><code data-trim class="language-python">if condition:
+    # suite</code></pre>
+						</figure>
+					</div>
+					<div class="fragment">
+						<figure>
+							<pre><code data-trim class="language-python">if condition:
+    # suite
+else:
+    # suite</code></pre>
+						</figure>
+					</div>
+					<div class="fragment">
+						<figure>
+							<pre><code data-trim class="language-python">if condition:
+		# suite
+elif:
+		# suite
+else:
+    # suite</code></pre>
+						</figure>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h3>Repetition</h3>
+			</section>
+			<section>
+				<h3><code>while</code></h3>
+			</section>
+			<section>
+				<pre><code data-trim class="language-python">count = 10
+
+while count >= 0:
+		print(f"{count:>2}...")
+		count -= 1
+
+print()
+print(" Blast off!!! 🚀")</code></pre>
+			</section>
+			<section>
+				<h3>Three Parts of a <code>while</code> loop</h3>
+				<div class="parent twoBy">
+					<div>
+						<figure>
+							<pre><code data-trim class="language-python">count = 10
+
+while count >= 0:
+		print(f"{count:}...")
+		count -= 1</code></pre>
+						</figure>
+					</div>
+					<div>
+						<ul>
+							<li class="fragment">Initialization</li>
+							<li class="fragment">Control</li>
+							<li class="fragment">Modification</li>
+						</ul>
+					</div>
+				</div>
+				<aside class="notes">
+					<ul>
+						<li><strong>Initialization:</strong> Outside of the loop and before the loop is entered,
+							the loop-control variable needs to be initialized. What value to initialize the
+							variable requires some consideration. The initial value should (typically) allow the
+							loop to begin (run through the first iteration). This variable's value will control
+							when the loop ends so it is initialized with the condition statement in mind.</li>
+						<li><strong>Control:</strong> The condition statement of the while loop needs to be
+							written, and the Boolean expression is typically written in terms of the loop-control
+							variable. The initial value and this condition are related and should be considered
+							together.</li>
+						<li><strong>Modification:</strong> Third, somewhere in the while loop suite, the loop-
+							control variable is modified so that eventually the Boolean expression of the while
+							becomes False so that the loop ends. This often means that the loop-control variable
+							will have a different value in the suite during each iteration of the loop It is the
+							changing of value that allows the n programmer to control when the loop will end.</li>
+					</ul>
+				</aside>
+			</section>
+			<section>
+				<h3><code>for<span class="fragment"> ... in</span></code></h3>
+				<aside class="notes">Not a classic <code>for</code>, <code>for...in</code></aside>
+			</section>
+			<section>
+				<pre><code data-trim class="language-python">meta_vars = ["spam", "ham", "eggs"]
+
+for var in meta_vars:
+    print(var.capitalize())</code></pre>
+			</section>
+			<section>
+				<pre><code data="trim" class="language-python">for count in range(10, -1, -1):
+		print(f"{count:>2}...")
+
+print()
+print(" Blast off!!! 🚀")</code></pre>
+			</section>
+			<section>
+				<h3>A Note on Naming</h3>
+				<aside class="notes">
+					Really don't like the way the book tags vars with type. Type hints FTW!
+				</aside>
+			</section>
+			<section>
+				<h3>"Truthy" values</h3>
+			</section>
+			<section>
+				<!-- <h3>What Does It Mean to be Equal?</h3> -->
+				<h3 class="fragment"><code> == </code> vs <code>is</code></h3>
+				<aside class="notes">
+					<pre><code class="language-python">a = 2.5
+b = 2.5
+c = b</code></pre>
+				</aside>
+			</section>
+			<section>
+				<h3>Operator Precedence</h3>
+				<table style="font-size: .8em;">
+					<thead>
+						<tr>
+							<td>Operator</td>
+							<td>Description</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>()</code></td>
+							<td>Parenthesis (grouping)</td>
+						</tr>
+						<tr>
+							<td><code>**</code></td>
+							<td>Exponentiation</td>
+						</tr>
+						<tr>
+							<td><code>+<i>x</i></code>,<code>-<i>x</i></code></td>
+							<td>Positive, Negative</td>
+						</tr>
+						<tr>
+							<td><code>*</code>, <code>/</code>, <code>//</code>, <code>%</code></td>
+							<td>Multiplication, Division, Modulo</td>
+						</tr>
+						<tr>
+							<td><code>+</code>, <code>-</code></td>
+							<td>Addition, Subtraction</td>
+						</tr>
+						<tr>
+							<td>
+								<code><</code>, <code><=</code>, <code>></code>, <code>>=</code>, <code>!=</code>, <code>==</code>
+							</td>
+							<td>Comparisons</td>
+						</tr>
+						<tr>
+							<td><code>not</code> <i>x</i></td>
+							<td>Boolean NOT</td>
+						</tr>
+						<tr>
+							<td><code>and</code></td>
+							<td>Boolean AND</td>
+						</tr>
+						<tr>
+							<td><code>or</code></td>
+							<td>Boolean OR</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<h3>Another Word on Assignments</h3>
+				<div class="parent twoBy">
+					<div>
+						<figure class="fragment">
+							<pre><code data-trim class="language-python">spam, ham = 37, 42</code></pre>
+							<figcaption>Multiple assignment</figcaption>
+						</figure>
+					</div>
+					<div>
+						<figure class="fragment">
+							<pre><code data-trim class="language-python">spam, ham = ham, spam</code></pre>
+							<figcaption>Swapping values</figcaption>
+						</figure>
+					</div>
+				</div>
+				<aside class="notes">What is the RHS evaluating to?</aside>
+			</section>
+			<section>
+				<h3><code>break</code> and <code>continue</code></h3>
+			</section>
+			<section>
+				<h3><code>else</code> Clause on <code>while</code> and <code>for</code> Loops</h3>
+				<div class="parent twoBy">
+					<div>
+						<figure>
+							<pre><code data-trim class="language-python">start = 0
+
+while start > 0:
+	print(f"{start}...")
+	start -= 1
+else:
+	print(" Blast off!!! 🚀")</code></pre>
+						</figure>
+					</div>
+					<div>
+						<figure class="fragment">
+							<pre><code data-trim class="language-python">target_value = "spam"
+
+values = ["spam", "ham", "eggs"]
+
+for value in values:
+		if value == target_value:
+				print(value)
+				break
+		else:
+				print(f"{target_value} not found")</code></pre>
+						</figure>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Universal Computers</h2>
+			</section>
+			<section>
+				<h3>Minimal Universal Computing</h3>
+			</section>
+			<section>
+				<p><em>What is the minimal set of instructions we need to compute anything that can be computed?</em></p>
+			</section>
+			<section>
+				<table>
+					<tbody>
+						<tr>
+							<td><code>LOAD A</code></td>
+							<td>Load contents at address A in RAM into accumulator</td>
+						</tr>
+						<tr>
+							<td><code>STORE A</code></td>
+							<td>store accumulator contents into address A in RAM</td>
+						</tr>
+						<tr>
+							<td><code>CLR</code></td>
+							<td>clear accumulator</td>
+						</tr>
+						<tr>
+							<td><code>INC</code></td>
+							<td>increment accumulator</td>
+						</tr>
+						<tr>
+							<td><code>BRZ X</code></td>
+							<td>branch to address A in RAM if accumulator is zero</td>
+						</tr>
+					</tbody>
+				</table>
+				<aside class="notes"><strong>All possible computer programs</strong> can be written using these five
+					instructions.</aside>
+			</section>
+			<section data-background-image="images/alan-turing-aged-16.jpg" data-background-size="contain"
+				data-background-repeat="no-repeat">
+				<p class="hidden">Model of a Turning Machine, photo by Rocky Acosta - Own work, CC BY 3.0,
+					https://commons.wikimedia.org/w/index.php?curid=24369879</p>
+			</section>
+			<section>
+				<h3><a href="https://en.wikipedia.org/wiki/Turing_machine" target="_blank">Turing Machines</a></h3>
+			</section>
+			<section data-background-image="images/turing-machine.jpg" data-background-size="contain"
+				data-background-repeat="no-repeat">
+				<p class="hidden">A photo of Alan Turing, by possibly Arthur Reginald Chaffin (1893-1954) -
+					http://www.turingarchive.org/viewer/?id=521&amp;title=4, Public
+					Domain, https://commons.wikimedia.org/w/index.php?curid=22828488</p>
+			</section>
+		</div>
+	</div>
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			hash: true,
+			slideNumber: true,
+			showSlideNumber: 'print',
+			help: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
