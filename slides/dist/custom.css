@@ -21,3 +21,16 @@
 .oregonGray {
 	color: #E1E0DC;
 }
+
+.parent {
+	display: grid;
+	column-gap: .5rem;
+}
+
+.twoBy {
+	grid-template-columns: 1fr 1fr;
+}
+
+.threeBy {
+	grid-template-columns: 1fr 1fr 1fr;
+}
