@@ -195,6 +195,7 @@ pyrightconfig.json
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
 
 ### Joe's Additions ###
+**assignment*
 slides/demo.html
 slides/index.html
 slides/scratch.html
