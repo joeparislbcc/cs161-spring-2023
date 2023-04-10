@@ -24,83 +24,81 @@
 				<h2>Control</h2>
 			</section>
 			<section>
-				<blockquote>
-					<p>
-						&ldquo;If you come to a fork in the <br> road, take it.&rdquo;
-					</p>
-
-					<p>&mdash; Yogi Berra</p>
-				</blockquote>
-			</section>
-			<section>
-				<h3>Selection</h3>
-			</section>
-			<section>
-				<div class="parent twoBy">
-					<div>
-						<figure>
-							<img src="images/figure-2-1.png" alt="sequential flow">
-							<figcaption>Sequential flow</figcaption>
-						</figure>
-					</div>
-					<div class="fragment">
-						<figure>
-							<img src="images/figure-2-2.png" alt="non-sequential flow">
-							<figcaption>Non-sequential flow</figcaption>
-						</figure>
-					</div>
-				</div>
-			</section>
-			<section>
-				<h3>Booleans</h3>
-			</section>
-			<section>
-				<h3>The <code>if</code> statement</h3>
-			</section>
-			<section>
-				<h3>Indentation</h3>
-				<aside class="notes">Four spaces</aside>
-			</section>
-			<section>
 				<h3><a href="https://peps.python.org/pep-0008/" target="_blank">PEP 8</a></h3>
 				<aside class="notes">Python formatting conventions</aside>
 			</section>
 			<section>
-				<div class="parent threeBy">
-					<div>
-						<figure>
-							<pre><code data-trim class="language-python">if condition:
-    # suite</code></pre>
-						</figure>
+				<blockquote>
+					<p>
+						&ldquo;If you come to a fork in the <br> road, take it.&rdquo;
+					</p>
+					<p>&mdash; Yogi Berra</p>
+				</blockquote>
+			</section>
+			<section>
+				<section>
+					<h3>Selection</h3>
+					<h4><code>if</code></h4>
+				</section>
+				<section>
+					<div class="parent twoBy">
+						<div>
+							<figure>
+								<img src="images/figure-2-1.png" alt="sequential flow">
+								<figcaption>Sequential flow</figcaption>
+							</figure>
+						</div>
+						<div class="fragment">
+							<figure>
+								<img src="images/figure-2-2.png" alt="non-sequential flow">
+								<figcaption>Non-sequential flow</figcaption>
+							</figure>
+						</div>
 					</div>
-					<div class="fragment">
-						<figure>
-							<pre><code data-trim class="language-python">if condition:
-    # suite
+				</section>
+				<section>
+					<div class="parent threeBy">
+						<div>
+							<figure>
+								<pre><code data-trim class="language-python">if condition:
+    # suite</code></pre>
+							</figure>
+						</div>
+						<div class="fragment">
+							<figure>
+								<pre><code data-trim class="language-python">if condition:
+		# suite
 else:
-    # suite</code></pre>
-						</figure>
-					</div>
-					<div class="fragment">
-						<figure>
-							<pre><code data-trim class="language-python">if condition:
+		# suite</code></pre>
+							</figure>
+						</div>
+						<div class="fragment">
+							<figure>
+								<pre><code data-trim class="language-python">if condition:
 		# suite
 elif:
 		# suite
 else:
-    # suite</code></pre>
-						</figure>
+		# suite</code></pre>
+							</figure>
+						</div>
 					</div>
-				</div>
+				</section>
+			</section>
+			<!-- <section>
+				<h3>Booleans</h3>
 			</section>
 			<section>
-				<h3>Repetition</h3>
-			</section>
+				<h3>Indentation</h3>
+				<aside class="notes">Four spaces</aside>
+			</section> -->
 			<section>
-				<h3><code>while</code></h3>
-			</section>
-			<section>
-				<pre><code data-trim class="language-python">count = 10
+				<section>
+					<h3>Repetition</h3>
+					<h4><code>while</code></h4>
+				</section>
+				<section>
+					<pre><code data-trim class="language-python">count = 10
 
 while count >= 0:
 		print(f"{count:>2}...")
@@ -108,6 +106,7 @@ while count >= 0:
 
 print()
 print(" Blast off!!! 🚀")</code></pre>
+				</section>
 			</section>
 			<section>
 				<h3>Three Parts of a <code>while</code> loop</h3>
@@ -148,22 +147,26 @@ while count >= 0:
 					</ul>
 				</aside>
 			</section>
+
 			<section>
-				<h3><code>for<span class="fragment"> ... in</span></code></h3>
+				<section>
+					<h3>Iteration</h3>
+					<h4><code>for</code></h4>
+				</section>
 				<aside class="notes">Not a classic <code>for</code>, <code>for...in</code></aside>
-			</section>
-			<section>
-				<pre><code data-trim class="language-python">meta_vars = ["spam", "ham", "eggs"]
+				<section>
+					<pre><code data-trim class="language-python">meta_vars = ["spam", "ham", "eggs"]
 
 for var in meta_vars:
-    print(var.capitalize())</code></pre>
-			</section>
-			<section>
-				<pre><code data="trim" class="language-python">for count in range(10, -1, -1):
+		print(var.capitalize())</code></pre>
+				</section>
+				<section>
+					<pre><code data="trim" class="language-python">for count in range(10, -1, -1):
 		print(f"{count:>2}...")
 
 print()
 print(" Blast off!!! 🚀")</code></pre>
+				</section>
 			</section>
 			<section>
 				<h3><code>while</code> vs <code>for</code></h3>
@@ -183,15 +186,15 @@ print(" Blast off!!! 🚀")</code></pre>
 				<h3>"Truthy" values</h3>
 			</section>
 			<section>
-				<!-- <h3>What Does It Mean to be Equal?</h3> -->
-				<h3><code> == </code> vs <code>is</code></h3>
+				<h3>What Does It Mean to be Equal?</h3>
+				<h4><code> == </code> vs <code>is</code></h4>
 				<aside class="notes">
 					<pre><code class="language-python">a = 2.5
 b = 2.5
 c = b</code></pre>
 				</aside>
 			</section>
-			<section>
+			<!-- <section>
 				<h3>Operator Precedence</h3>
 				<table style="font-size: .8em;">
 					<thead>
@@ -241,7 +244,7 @@ c = b</code></pre>
 						</tr>
 					</tbody>
 				</table>
-			</section>
+			</section> -->
 			<section>
 				<h3>Another Word on Assignments</h3>
 				<div class="parent twoBy">
@@ -260,7 +263,7 @@ c = b</code></pre>
 				</div>
 				<aside class="notes">What is the RHS evaluating to?</aside>
 			</section>
-			<section>
+			<!-- <section>
 				<h3><code>break</code> and <code>continue</code></h3>
 			</section>
 			<section>
@@ -292,7 +295,7 @@ for value in values:
 						</figure>
 					</div>
 				</div>
-			</section>
+			</section> -->
 			<section>
 				<h2>Universal Computers</h2>
 			</section>
@@ -306,11 +309,11 @@ for value in values:
 				<table>
 					<tbody>
 						<tr>
-							<td><code>LOAD A</code></td>
+							<td><code>LOAD&nbsp;A</code></td>
 							<td>Load contents at address A in RAM into accumulator</td>
 						</tr>
 						<tr>
-							<td><code>STORE A</code></td>
+							<td><code>STORE&nbsp;A</code></td>
 							<td>store accumulator contents into address A in RAM</td>
 						</tr>
 						<tr>
@@ -322,7 +325,7 @@ for value in values:
 							<td>increment accumulator</td>
 						</tr>
 						<tr>
-							<td><code>BRZ X</code></td>
+							<td><code>BRZ&nbsp;X</code></td>
 							<td>branch to address A in RAM if accumulator is zero</td>
 						</tr>
 					</tbody>
