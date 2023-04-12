@@ -23,6 +23,48 @@
 				<h1>Chapter 3</h1>
 				<h2>Algorithms and Program Development</h2>
 			</section>
+			<section style="text-align: left;">
+				<p>Informally, an <span class="lbGold">algorithm</span> is any well-defined procedure that
+					takes some value, or set of values, as <span class="lbGold">input</span> and produces some
+					value, or set of values, as <span class="lbGold">output</span> in a finite amount of time.</p>
+
+				<p class="fragment">An algorithm is thus a sequence of computational steps that transform
+					the input into the output.</p>
+			</section>
+			<section>
+				<p>Definition of the <span class="lbGold">sorting problem</span>:</p>
+				<table>
+					<tbody>
+						<tr>
+							<td><strong>Input:</strong></td>
+							<td>
+								A&nbsp;sequence&nbsp;of&nbsp;<em>n</em>&nbsp;numbers&nbsp;&langle;a<sub>1</sub>,&nbsp;a<sub>2</sub>,&nbsp;....,&nbsp;a<sub>n</sub>&rangle;.
+							</td>
+						</tr>
+						<tr>
+							<td><strong>Output:</strong></td>
+							<td>
+								A&nbsp;permutation&nbsp;(reordering)&nbsp;&langle;a&prime;<sub>1</sub>,&nbsp;a&prime;<sub>2</sub>,&nbsp;....,&nbsp;a&prime;<sub>n</sub>&rangle;
+								of the input sequence such that
+								a&prime;<sub>1</sub>&nbsp;&le;&nbsp;a&prime;<sub>2</sub>&nbsp;&le;&nbsp;...&nbsp;&le;&nbsp;a&prime;<sub>n</sub>.
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<aside class="notes">Suppose you need to sort a sequence of numbers into monotonically
+					increasing order. this problem arises frequently in practice. Here we formally define the
+					sorting problem.
+				</aside>
+			</section>
+			<section style="text-align: left;">
+				<p>Most often we are concerned about the efficiency of algorithms and our usual measure of
+					efficiency is speed: how long does an algorithm take to produce its result?</p>
+			</section>
+			<section style="text-align: left;">
+				<p>There are some problems, however, for which we know of no algorithm that runs in a
+					reasonable amount of time. These are known as <span class="lbGold">NP-complete</span> problems.
+				</p>
+			</section>
 			<section>
 				<h3>The Rules of Programming</h3>
 				<ol start="6">
