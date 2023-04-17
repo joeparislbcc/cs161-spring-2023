@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Chapter 5</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css">
+	<link rel="stylesheet" href="dist/custom.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Chapter 5</h1>
+				<h2>Functions Quickstart</h2>
+			</section>
+			<section style="text-align: left;">
+				<blockquote style="padding: 1rem;">
+					<p>
+						&ldquo;The basic tool for the manipulation of reality is the manipulation of words.&rdquo;
+					</p>
+					<p>&mdash; Phillip K. Dick</p>
+				</blockquote>
+			</section>
+			<section>
+				<section>
+					<p>Strings are one of Python's built in <em class="lbGold">collection</em> types.</p>
+				</section>
+				<section>
+					<h3>Triple-Quoted Strings</h3>
+					<aside class="notes">Preserves all formatting</aside>
+				</section>
+			</section>
+			<section>
+				<h3>Strings are immutable.</h3>
+			</section>
+			<section>
+				<h3>Strings have many <a href="https://docs.python.org/3/library/stdtypes.html#string-methods"
+						target="_blank">methods</a>.</h3>
+			</section>
+			<section>
+				<h3><code>string</code> has many <a href="https://docs.python.org/3/library/string.html#string-constants"
+						target="_blank">constants</a>.</h3>
+			</section>
+			<section>
+				<section>
+					<h3><code>string</code> has powerful <a
+							href="https://docs.python.org/3/library/string.html#custom-string-formatting"
+							target="_blank"><br>formatting
+							syntax</a>.</h3>
+				</section>
+				<section>
+					<h3><a href="https://pyformat.info/" target="_blank">pyformat.info</a></h3>
+				</section>
+				<section>
+					<h3><a href="https://realpython.com/python-f-strings/" target="_blank">f-strings</a></h3>
+				</section>
+			</section>
+			<section>
+				<h3>
+					Standard operations:
+					<h4>
+						<ul>
+							<li>length function: <code>len(s)</code></li>
+							<li>membership: <code>in</code></li>
+						</ul>
+					</h4>
+				</h3>
+			</section>
+			<section>
+				<h3>Slicing.</h3>
+			</section>
+			<section>
+				<h3>
+					Iteration:
+					<h4>
+						<ul>
+							<li><code>for</code></li>
+							<li><code>enumerate</code></li>
+						</ul>
+					</h4>
+				</h3>
+			</section>
+		</div>
+	</div>
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			hash: true,
+			slideNumber: true,
+			showSlideNumber: 'print',
+			help: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
