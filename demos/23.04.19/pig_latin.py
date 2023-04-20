@@ -5,7 +5,7 @@ VOWELS = "aeiou"
 
 
 def pig_latin(word: str) -> str:
-    if word[0].lower() == "y":
+    while word[0].lower() == "y":
         word = word[1:] + word[0]
 
     if word[0].lower() in CONSONANTS:
