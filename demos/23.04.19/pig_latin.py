@@ -22,9 +22,9 @@ def pig_latin(word: str) -> str:
 
 if __name__ == "__main__":
     print("Give me a word and I will translate it into pig latin for you.")
-    word = input("Please enter a word: ")
+    user_word = input("Please enter a word: ")
 
-    print(pig_latin(word))
+    print(pig_latin(user_word))
 
     # assert pig_latin("dog") == "ogday"
     # assert pig_latin("scratch") == "atchscray"
