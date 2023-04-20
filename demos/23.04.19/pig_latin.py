@@ -27,10 +27,10 @@ if __name__ == "__main__":
 
     print(pig_latin(word))
 
-    # print(pig_latin("dog"))
-    # print(pig_latin("scratch"))
-    # print(pig_latin("is"))
-    # print(pig_latin("apple"))
-    # print(pig_latin("yellow"))
-    # print(pig_latin("cyan"))
-    # print(pig_latin("rhythm"))
+    # assert pig_latin("dog") == "ogday"
+    # assert pig_latin("scratch") == "atchscray"
+    # assert pig_latin("is") == "isyay"
+    # assert pig_latin("apple") == "appleyay"
+    # assert pig_latin("yellow") == "ellowyay"
+    # assert pig_latin("cyan") == "yancay"
+    # assert pig_latin("rhythm") == "ythmrhay"
