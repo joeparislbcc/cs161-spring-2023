@@ -12,11 +12,10 @@ def pig_latin(word: str) -> str:
         while word[0].lower() in CONSONANTS:
             word = word[1:] + word[0]
         word += "ay"
+    elif word[-1] == "y":
+        word += "ay"
     else:
-        if word[-1] == "y":
-            word += "ay"
-        else:
-            word += "yay"
+        word += "yay"
 
     return word
 
