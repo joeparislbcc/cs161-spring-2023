@@ -21,74 +21,206 @@
 		<div class="slides">
 			<section>
 				<h1>Chapter 5</h1>
-				<h2>Functions Quickstart</h2>
+				<h2>Functions (Quickstart)</h2>
 			</section>
-			<section style="text-align: left;">
+			<!-- <section style="text-align: left;">
 				<blockquote style="padding: 1rem;">
 					<p>
-						&ldquo;The basic tool for the manipulation of reality is the manipulation of words.&rdquo;
+						&ldquo;Function, the exercise, or executing of some office or charge.&rdquo;
 					</p>
-					<p>&mdash; Phillip K. Dick</p>
+					<p>&mdash; T. Blount, Glossographia, 1656 Earliest definition of function in the <i>Oxford English
+							Dictionary</i></p>
 				</blockquote>
+			</section> -->
+			<section>
+				<h3>What Are Functions?</h3>
 			</section>
 			<section>
-				<section>
-					<p>Strings are one of Python's built in <em class="lbGold">collection</em> types.</p>
-				</section>
-				<section>
-					<h3>Triple-Quoted Strings</h3>
-					<aside class="notes">Preserves all formatting</aside>
-				</section>
-			</section>
-			<section>
-				<h3>Strings are immutable.</h3>
-			</section>
-			<section>
-				<h3>Strings have many <a href="https://docs.python.org/3/library/stdtypes.html#string-methods"
-						target="_blank">methods</a>.</h3>
-			</section>
-			<section>
-				<h3><code>string</code> has many <a href="https://docs.python.org/3/library/string.html#string-constants"
-						target="_blank">constants</a>.</h3>
-			</section>
-			<section>
-				<section>
-					<h3><code>string</code> has powerful <a
-							href="https://docs.python.org/3/library/string.html#custom-string-formatting"
-							target="_blank"><br>formatting
-							syntax</a>.</h3>
-				</section>
-				<section>
-					<h3><a href="https://pyformat.info/" target="_blank">pyformat.info</a></h3>
-				</section>
-				<section>
-					<h3><a href="https://realpython.com/python-f-strings/" target="_blank">f-strings</a></h3>
-				</section>
-			</section>
-			<section>
-				<h3>
-					Standard operations:
-					<h4>
+				<h3>Why Have Functions?</h3>
+				<div class="parent twoBy">
+					<div>
 						<ul>
-							<li>length function: <code>len(s)</code></li>
-							<li>membership: <code>in</code></li>
+							<li>Divide-and-Conquer Problem Solving</li>
+							<li>Abstraction</li>
+							<li>Reuse</li>
 						</ul>
-					</h4>
-				</h3>
-			</section>
-			<section>
-				<h3>Slicing.</h3>
-			</section>
-			<section>
-				<h3>
-					Iteration:
-					<h4>
+					</div>
+					<div>
 						<ul>
-							<li><code>for</code></li>
-							<li><code>enumerate</code></li>
+							<li>Sharing</li>
+							<li>Security</li>
+							<li>Simplification and Readability</li>
 						</ul>
-					</h4>
-				</h3>
+					</div>
+				</div>
+				<aside class="notes">
+					<ul>
+						<li><strong>Divide-and-Conquer Problem Solving:</strong> Functions divide programs into
+							smaller pieces, an approach that corresponds nicely to a divide-and-conquer approach
+							to problem solving</li>
+						<li><strong>Abstraction:</strong> Functions provide a higher-level interface to the
+							operation that the function implements. By encapsulating details, functions provide a
+							programmer with a high-level view of the function's operation that could be
+							implemented in multiple ways—possibly by someone else.
+						<li><strong>Reuse:</strong> Once a function has been created, it can be reused. If you
+							write a function that locates strings in a database, then anywhere that functionality
+							is required can reuse that function.</li>
+						<li><strong>Sharing:</strong> Once your function is well tested, you can distribute it
+							for use by other programmers.
+						<li><strong>Security:</strong> One way to battle security issues is the use of functions.
+							Small pieces of code can be more easily vetted, and security (and other issues) be
+							more easily addressed.</li>
+						<li><strong>Simplification and Readability:</strong> (duplication removal) Because a
+							function provides an encapsulation, it can be used to simplify a program and make it
+							more readable. Anywhere that multiple lines of code might be needed to perform a task,
+							a function can replace those lines.</li>
+					</ul>
+				</aside>
+			</section>
+			<section>
+				<h3>How to &amp; Use Functions</h3>
+				<div class="parent twoBy">
+					<div>
+						<p>definition</p>
+					</div>
+					<div>
+						<p>invocation</p>
+					</div>
+				</div>
+			</section>
+			<!-- <section>
+				<figure>
+					<img src="images/figure-5-1.png" alt="function parts">
+					<figcaption>Parts of a Python Function</figcaption>
+				</figure>
+			</section> -->
+			<section>
+				<h3>Parts of a Function</h3>
+			</section>
+			<section>
+				<h3>Flow of Control</h3>
+			</section>
+			<section>
+				<h3>Parameter Passing</h3>
+				<aside class="notes">
+					<ul>
+						<li><strong>Parameter:</strong> in the function definition</li>
+						<li><strong>Argument:</strong> in the function invocation</li>
+					</ul>
+					<p>Functions create <strong>namespaces</strong>.</p>
+					<p>Parameters act as local variables inside the function.</p>
+				</aside>
+			</section>
+			<section>
+				<h3>Example: Area of a Triangle</h3>
+			</section>
+			<section>
+				<h3>Functions Calling Functions</h3>
+			</section>
+			<section>
+				<h3>When to Use a Function</h3>
+				<div class="parent threeBy">
+					<div>
+						<ul>
+							<li>Do One Thing</li>
+							<li>Readable</li>
+							<li>Not Too Long</li>
+						</ul>
+					</div>
+					<div>
+						<ul>
+							<li>Reusable</li>
+							<li>Complete</li>
+							<li>Refactoring</li>
+						</ul>
+					</div>
+					<div>
+						<ul class="fragment">
+							<li>Low Coupling</li>
+							<li>High Cohesion</li>
+						</ul>
+					</div>
+				</div>
+				<aside class="notes">
+					<ul>
+						<li><strong>Do one thing: </strong> A function should be the
+							encapsulation of a single, identifiable operation. A function
+							should do one thing, and do it well. Functions that try to do too
+							many things are candidates to be broken into multiple functions
+							(i.e., refactored).</li>
+						<li><strong>Readable: </strong>A function should be readable.</li>
+						<li><strong>Not Too Long: </strong>A function shouldn't be too long.
+							What is "too long" depends on many things, but the idea is that if
+							a function does one thing, a person should be able to read it
+							easily and understand its purpose. If the function is too long,
+							difficult to follow somehow, it might need to be broken into
+							multiple functions (i.e., refactored).</li>
+						<li><strong>Reusable: </strong>A function should be reusable in
+							contexts other than the program it was written for originally. If
+							possible, the function should be self-contained and not dependent
+							on some nuance of the calling program. If it has dependencies,
+							then those dependencies should be made clear so that others can
+							use it more easily.</li>
+						<li><strong>Complete: </strong>A function should be complete, in
+							that it works in all potential situations. If you write a function
+							to perform one thing, you should make sure that all the cases
+							where it might be used are taken into account. It is often the
+							case that the core of the function is very straightforward, but
+							handling all the cases it might encounter requires supporting
+							code.</li>
+						<li><strong>Refactoring: </strong>A function should be complete, in
+							that it works in all potential situations. If you write a function
+							to perform one thing, you should make sure that all the cases where
+							it might be used are taken into account. It is often the case that
+							the core of the function is very straightforward, but handling all
+							the cases it might encounter requires supporting code.</li>
+					</ul>
+					<p><strong>Click!</strong></p>
+					<ul>
+						<li><strong>Low Coupling: </strong>Functions should be as independent
+							as possible from other modules, so that changes to one function
+							don't heavily impact functions.</li>
+						<li><strong>High Cohesion: </strong>In a highly cohesive function
+							every line of code works towards to purpose of the function and
+							<em>only</em> the purpose of the function.
+						</li>
+					</ul>
+				</aside>
+			</section>
+			<section>
+				<h3>The Rules of Programming</h3>
+				<ol start="8">
+					<li>A function should do one thing (and do it well).</li>
+					<aside class="notes">
+						<p>This idea is so important it gets its own rule.</p>
+					</aside>
+				</ol>
+			</section>
+			<section>
+				<h3>What If There Is <br> No Return Statement?</h3>
+			</section>
+			<section>
+				<h3>What If There Are <br> Multiple Return Statements?</h3>
+			</section>
+			<section>
+				<h3>The Rules of Programming</h3>
+				<h4>(so far)</h4>
+				<ol>
+					<li>Think before you program!</li>
+					<li>A program is a human-readable essay on problem-solving that also happens to execute on a computer.</li>
+					<li>The best way to improve your programming and problem-solving skills is to practice!</li>
+					<li>A foolish consistency is the hobgoblin of little minds.</li>
+					<li>Test your code, often and thoroughly!</li>
+				</ol>
+			</section>
+			<section>
+				<h3>The Rules of Programming</h3>
+				<h4>(so far)</h4>
+				<ol start="6">
+					<li>If it was hard to write, it is probably hard to read. Add a comment.</li>
+					<li style="opacity: 25%; font-style: italic !important;">All input is evil until proven otherwise.</li>
+					<li>A function should do one thing (and do it well).</li>
+				</ol>
 			</section>
 		</div>
 	</div>
