@@ -30,13 +30,15 @@ def get_vowels(word: str) -> str:
 
 def main():
     VOWELS_IN_ORDER = "aeiou"
+    index = 1
 
     with open("dictionary.txt", mode="r", encoding="utf-8") as source:
         for word in source:
             clean_word = sanitize_word(word)
             vowels_in_word = get_vowels(clean_word)
             if vowels_in_word == VOWELS_IN_ORDER:
-                print(clean_word)
+                print(f"{index:>3}. {clean_word}")
+                index += 1
 
 
 if __name__ == "__main__":
