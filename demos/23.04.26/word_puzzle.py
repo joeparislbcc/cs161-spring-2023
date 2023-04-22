@@ -17,11 +17,26 @@ def sanitize_word(word: str) -> str:
     return word.strip().lower()
 
 
+def get_vowels(word: str) -> str:
+    VOWELS = "aeiou"
+
+    vowels_in_word = ""
+    for letter in word:
+        if letter in VOWELS:
+            vowels_in_word += letter
+
+    return vowels_in_word
+
+
 def main():
+    VOWELS_IN_ORDER = "aeiou"
+
     with open("dictionary.txt", mode="r", encoding="utf-8") as source:
         for word in source:
             clean_word = sanitize_word(word)
-            print(clean_word)
+            vowels_in_word = get_vowels(clean_word)
+            if vowels_in_word == VOWELS_IN_ORDER:
+                print(clean_word)
 
 
 if __name__ == "__main__":
