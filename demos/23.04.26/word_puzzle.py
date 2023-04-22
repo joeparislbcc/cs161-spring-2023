@@ -13,8 +13,15 @@ will:
 """
 
 
+def sanitize_word(word: str) -> str:
+    return word.strip().lower()
+
+
 def main():
-    pass
+    with open("dictionary.txt", mode="r", encoding="utf-8") as source:
+        for word in source:
+            clean_word = sanitize_word(word)
+            print(clean_word)
 
 
 if __name__ == "__main__":
