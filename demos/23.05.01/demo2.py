@@ -7,4 +7,6 @@ less error-prone, and is the preferred way to do so.
 
 with open("fellowship.txt", mode="r", encoding="utf-8") as roster:
     for line in roster:
-        print(line)
+        print(line.strip())
+
+# there's in implicit close() here

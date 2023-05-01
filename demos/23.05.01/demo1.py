@@ -2,10 +2,10 @@
 """Open a text file for writing and print its contents to screen."""
 
 # open the file explicitly setting its mode and encoding
-roster = open("fellowship.txt", mode="w", encoding="utf-8")
+roster = open("fellowship.txt", mode="r", encoding="utf-8")
 
 for line in roster:
-    print(line)
+    print(line.strip())
 
 roster.close()  # be sure to close your files when you are done with them!
 

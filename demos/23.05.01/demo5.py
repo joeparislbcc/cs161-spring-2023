@@ -7,7 +7,7 @@ specified by the user."""
 
 def main():
     filename = input("Please enter the name of the file to read from: ")
-    target_line_number = int(input("Please enter the line number to read: "))
+    target_line_number = input("Please enter the line number to read: ")
 
     try:
         with open(filename, mode="r", encoding="utf-8") as infile:

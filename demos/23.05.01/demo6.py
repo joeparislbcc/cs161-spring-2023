@@ -12,6 +12,9 @@ def main():  # McCabe strikes again!!
             filename = input("Please enter the name of the file to read from: ")
         except EOFError:
             sys.exit()
+        except KeyboardInterrupt:
+            print("Goodbye!")
+            sys.exit()
 
         try:
             with open(filename, mode="r", encoding="utf=8") as infile:
