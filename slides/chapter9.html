@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Chapter 9</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css">
+	<link rel="stylesheet" href="dist/custom.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Chapter 9</h1>
+				<h2>Dictionaries and Sets</h2>
+			</section>
+			<section>
+				<h3>Dictionaries</h3>
+			</section>
+			<section>
+				<p style="text-align: left;"><span class="lbGold"><code>Dictionaries</code></span> are similar to
+					<code>lists</code> in that they are a <em>collection</em> of objects.
+				</p>
+
+				<p style="text-align: left;" class="fragment">Like <code>lists</code>, <code>dictionaries</code> are mutable,
+					can grow and shrink as needed, and can be nested (a <code>dictionary</code> can contain other
+					<code>dictionaries</code>. As of Python 3.7, Dict order is guaranteed to be insertion order.
+				</p>
+
+				<p style="text-align: left;" class="fragment">Unlike <code>lists</code>, whose elements are accessed via an
+					index, the <span class="lbGold"><code>items</code></span> in a <code>dictionary</code> are accessed via a
+					<span class="lbGold"><code>key</code></span> Prior .
+				</p>
+			</section>
+			<section>
+				<figure>
+					<pre><code data-trim data-noescape class="language-python" style="width: 110%;">students = {
+    'X00335975': 'Stephanie Henderson',
+    'X00352898': 'Natalie Hawkins',
+    'X00354152': 'Aaron Hines',
+    'X00665112': 'Susan Reed',
+    'X00726007': 'Brian Jackson'
+}</code></pre>
+				</figure>
+			</section>
+			<section>
+				<figure>
+					<pre><code data-trim data-noescape class="language-python" style="width: 110%;">students = dict([
+    ('X00335975', 'Stephanie Henderson'),
+    ('X00352898', 'Natalie Hawkins'),
+    ('X00354152', 'Aaron Hines'),
+    ('X00665112', 'Susan Reed'),
+    ('X00726007', 'Brian Jackson)'
+])</code></pre>
+				</figure>
+			</section>
+			<section>
+				<figure>
+					<pre><code data-trim data-noescape class="language-python" style="width: 110%;">students = dict(
+		X00335975 = 'Stephanie Henderson',
+		X00352898 = 'Natalie Hawkins',
+		X00354152 = 'Aaron Hines',
+		X00665112 = 'Susan Reed',
+		X00726007 = 'Brian Jackson'
+)</code></pre>
+				</figure>
+			</section>
+			<section>
+				<p style="text-align: left;">You access values in a <code>dictionary</code> via its key:</p>
+				<pre><code data-trim data-noescape class="language-python" style="width: 110%;">students = dict(
+		X00335975 = 'Stephanie Henderson',
+		X00352898 = 'Natalie Hawkins',
+		X00354152 = 'Aaron Hines',
+		X00665112 = 'Susan Reed',
+		X00726007 = 'Brian Jackson'
+)
+
+print(students['X00335975']</code></pre>
+			</section>
+			<section>
+				<h3>Restrictions on Dictionary Keys</h3>
+				<ul>
+					<li>A given key can only appear in a dictionary <em>once</em>.</li>
+					<li>Dictionary keys must be of an <em>immutable</em> type such as <code>integer</code>, <code>float</code>,
+						<code>string</code>, <code>Boolean</code>, <code>tuple</code>, etc.
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h3>Restrictions on Dictionary Values</h3>
+				<p>There are no restrictions on dictionary values.</p>
+			</section>
+			<section>
+				<h3>Operators</h3>
+				<dl>
+					<dt><code>[ ]</code></dt>
+					<dd>Retrieve a value.</dd>
+					<dt><code>len()</code></dt>
+					<dd>Returns the number of key-value pairs in the dictionary.</dd>
+					<dt><code>in</code> / <code>not in</code></dt>
+					<dd>Tests whether a given key is in the dictionary.</dd>
+					<dt><code>for</code></dt>
+					<dd>Iterates over the dictionary's keys.</dd>
+				</dl>
+			</section>
+			<section>
+				<h3>Selected Dictionary Methods</h3>
+				<ul>
+					<li><code>d.items()</code></li>
+					<li><code>d.keys()</code></li>
+					<li><code>d.values()</code></li>
+					<li><code>d.get(&lt;key&gt; [,&lt;default&gt;])</code></li>
+					<li><code>d.pop(&lt;key&gt; [,&lt;default&gt;])</code></li>
+				</ul>
+			</section>
+			<!-- <section>
+				<h3>Selected Dictionary Methods</h3>
+				<dl>
+					<dt><code>d.items()</code></dt>
+					<dd>Returns a collection of key-value pairs.</dd>
+					<dt><code>d.keys()</code></dt>
+					<dd>Returns a collection of keys.</dd>
+					<dt><code>d.values()</code></dt>
+					<dd>Returns a collection of values.</dd>
+					<dt><code>d.get(&lt;key&gt; [,&lt;default&gt;])</code></dt>
+					<dd>Returns the value for a key if it exists in the dictionary.</dd>
+					<dt><code>d.pop(&lt;key&gt; [,&lt;default&gt;])</code></dt>
+					<dd>Removes a key from a dictionary, if it is present, and returns its value.</dd>
+				</dl>
+			</section> -->
+			<section>
+				<h2>JSON</h2>
+			</section>
+			<section>
+				<p><a href="https://realpython.com/python-json/" target="_blank">Working With JSON Data in Python</a></p>
+			</section>
+
+			<section>
+				<p>A quick review of the data types you've seen so far...</p>
+			</section>
+			<section>
+				<p style="text-align: left;"><span class="lbGold"><code>Lists</code></span> are <em>mutable</em> sequences of
+					elements, best suited for situations where you need to store and manipulate a collection of <em>homogeneous
+						elements</em> in a <em>specific order</em>.</p>
+				<p style="text-align: left;" class="fragment">They are commonly used for tasks such as building up sequences
+					of values, representing matrices and other multidimensional arrays, and implementing stacks, queues, and other
+					data structures.</p>
+			</section>
+			<section>
+				<p style="text-align: left;"><span class="lbGold"><code>Tuples</code></span> are <em>immutable</em> sequences of
+					elements, best suited for situations where you need to store a collection of <em>heterogeneous elements</em>
+					that won't change and whose <em>order is important</em>.</p>
+				<p style="text-align: left;" class="fragment">They are commonly used for tasks such as returning multiple
+					values from a function, unpacking sequences into variables, and representing fixed-length records.</p>
+			</section>
+			<section>
+				<p style="text-align: left;"><span class="lbGold"><code>Dictionaries</code></span> are <em>mutable</em>,
+					<em>unordered</em> collections of <em>key-value pairs</em>, best suited for situations where you need to store
+					and retrieve values <em>based on a key</em> of some sort.
+				</p>
+				<p style="text-align: left;" class="fragment">They are commonly used for tasks such as caching results,
+					representing data with a hierarchical structure, and implementing lookup tables.</p>
+			</section>
+
+			<section>
+				<h3>Sets</h3>
+			</section>
+			<section>
+				<p style="text-align: left;"><span class="lbGold"><code>Sets</code></span> are <em>mutable</em>,
+					<em>unordered</em> collections of <em>unique elements</em>, best suited for situations where you need to
+					perform <em>set operations</em> such as union, intersection, and difference.
+				</p>
+				<p style="text-align: left;" class="fragment">They are commonly used for tasks such as deduplicating data,
+					finding common elements between multiple collections, and testing for membership.</p>
+			</section>
+			<section>
+				<p><a href="https://realpython.com/python-sets/" target="_blank">Sets in Python</a></p>
+			</section>
+
+			<section>
+				<h3>Operators</h3>
+				<dl>
+					<dt><code>len()</code></dt>
+					<dd>Returns the number of elements in the set.</dd>
+					<dt><code>in</code> / <code>not in</code></dt>
+					<dd>Tests membership.</dd>
+					<dt><code>for</code></dt>
+					<dd>Iterates over the set's elements.</dd>
+				</dl>
+			</section>
+			<section>
+				<h3>Operators vs. Methods</h3>
+				<p style="text-align: left;">Most, though not quite all, set operations in Python can be performed in two
+					different ways: by operator or by method.</p>
+				<p><a href="https://realpython.com/python-sets/#available-operators-and-methods" target="_blank">Available
+						Operators and Methods</a></p>
+			</section>
+
+			<!-- <section>
+				<h3>The Rules of Programming</h3>
+				<h4>(so far)</h4>
+				<ol>
+					<li>Think before you program!</li>
+					<li>A program is a human-readable essay on problem-solving that also happens to execute on a computer.</li>
+					<li>The best way to improve your programming and problem-solving skills is to practice!</li>
+					<li>A foolish consistency is the hobgoblin of little minds.</li>
+					<li>Test your code, often and thoroughly!</li>
+				</ol>
+			</section>
+			<section>
+				<h3>The Rules of Programming</h3>
+				<h4>(so far)</h4>
+				<ol start="6">
+					<li>If it was hard to write, it is probably hard to read. Add a comment.</li>
+					<li>All input is evil until proven otherwise.</li>
+					<li>A function should do one thing (and do it well).</li>
+				</ol>
+			</section> -->
+		</div>
+	</div>
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			hash: true,
+			slideNumber: true,
+			showSlideNumber: 'print',
+			help: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
