@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Comprehensions and Generators</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css">
+	<link rel="stylesheet" href="dist/custom.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Comprehensions and Generators</h1>
+			</section>
+			<section>
+				<h2>Comprehensions</h2>
+			</section>
+			<section>
+				<p><i>Comprehensions</i> give us elegant, short, and concise means to build new sequences.</p>
+			</section>
+			<section>
+				<p><span style="font-family: monospace;">[</span>
+					<span style=" font-style: italic;">expression</span>
+					<span style="font-family: monospace; font-weight: bold;">for</span>
+					<span style="font-style: italic;">condition</span>
+					<span style="font-style: italic;">&lt;clause&gt;</span>
+					<span style="font-family: monospace;">]</span>
+				</p>
+			</section>
+			<section>
+				<h3>List Comprehension</h3>
+				<p style=" text-align: left;">Creating a list of squares...</p>
+				<pre><code data-trim data-noescape class="language-python">squares = []
+for num in range(1, 11):
+    squares.append(num ** 2)</code></pre>
+				<div class="fragment">
+					<p style="text-align: left;">becomes...</p>
+					<pre><code data-trim data-noescape class="language-python">squares = [num **2 for num in range(1, 11)]</code></pre>
+				</div>
+				<p class="fragment">
+					<small>
+						<span style="font-family: monospace;">[</span>
+						<span style=" font-style: italic;">expression</span>
+						<span style="font-family: monospace; font-weight: bold;">for</span>
+						<span style="font-style: italic;">condition</span>
+						<span style="font-family: monospace;">]</span>
+					</small>
+				</p>
+			</section>
+			<section>
+				<p style="text-align: left;">Creating a list of odd integers between 1 and 100...</p>
+				<pre><code data-trim data-noescape class="language-python">odds = [num for num in range(1, 101) if not num%2 == 0]</code></pre>
+				<p class="fragment">
+					<small>
+						<span style="font-family: monospace;">[</span>
+						<span style=" font-style: italic;">expression</span>
+						<span style="font-family: monospace; font-weight: bold;">for</span>
+						<span style="font-style: italic;">condition</span>
+						<span style="font-style: italic;">&lt;clause&gt;</span>
+						<span style="font-family: monospace;">]</span>
+					</small>
+				</p>
+				<p class="fragment" style="text-align: left;">What would the equivalent Python code that <em>doesn't</em> use a
+					comprehension be?</p>
+			</section>
+			<section>
+				<h3>Nested <code>for</code> Loops</h3>
+			</section>
+			<section>
+				<p>Suppose you want to make a matrix <br> that looks like the following:</p>
+				<div class="parent twoBy">
+					<div>
+						<figure>
+							<pre>matrix = [[0, 1, 2, 3, 4],
+          [0, 1, 2, 3, 4],
+          [0, 1, 2, 3, 4],
+          [0, 1, 2, 3, 4],
+          [0, 1, 2, 3, 4]]</pre>
+						</figure>
+					</div>
+					<div class="fragment">
+						<figure>
+							<pre><code data-trim data-noescape class="language-python">matrix = []
+for i in range(5):
+    matrix.append([])
+
+		for j in range(5):
+        matrix[i].append(j)</code></pre>
+						</figure>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="parent twoBy" style="font-size: 90%; grid-template-columns: 37% auto;">
+					<div>
+						<figure>
+							<pre><code data-trim data-noescape class="language-python">matrix = []
+for i in range(5):
+		matrix.append([])
+
+		for j in range(5):
+        matrix[i].append(j)</code></pre>
+						</figure>
+					</div>
+					<div class="fragment" style="display: flex; align-items: center;">
+						<figure>
+							<pre><code data-trim data-noescape class="language-python" style="width: 110%;">matrix = [[j for j in range(5)] for i in range(5)]</code></pre>
+						</figure>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h3>Other Types of Comprehensions</h3>
+			</section>
+			<section>
+				<h3>Tuple Comprehensions</h3>
+				<pre><code data-trim data-noescape class="language-python">squares = tuple(num **2 for num in range(1, 11))</code></pre>
+				<p class="fragment"><strong>Note: </strong>the use of <code>tuple</code> in the expression.</p>
+			</section>
+			<section>
+				<h3>Dictionary Comprehensions</h3>
+				<pre><code data-trim data-noescape class="language-python">squares = {num : num**2 for num in range(1,11)}</code></pre>
+			</section>
+			<section>
+				<h3>Set Comprehensions</h3>
+				<pre><code data-trim data-noescape class="language-python">nums = {random.randint(1, 10) for num in range(15)}</code></pre>
+			</section>
+			<section>
+				<h2>Generators</h2>
+			</section>
+			<section>
+				<p>A <span class="lbGold">generator</span> is a special type of function that <br> doesn't return a single value
+					but instead it <br> returns an <span class="lbGold">iterator&nbsp;object.</span></p>
+			</section>
+			<section>
+				<h3>A List Generator</h3>
+				<pre><code data-trim data-noescape class="language-python">nums = (n for n in range(100_000_000))</code></pre>
+				<aside class="notes">
+					<p>Note the parens instead of square brackets.</p>
+					<p>This is why the tuple comprehension requires the use of the <code>tuple</code> keyword</p>
+				</aside>
+			</section>
+			<section>
+				<p>Unlike <code>lists</code> and <code>tuples</code>, that store all their values in memory at once,
+					<code>generators</code> generate their values on the fly, one at a time, as needed.
+				</p>
+			</section>
+			<section>
+				<pre><code data-trim data-noescape class="language-python">import sys
+nums_list = [n for n in range(100_000_000)]
+nums_generator = (n for n in range(100_000_000))
+
+print(f"nums_list is {sys.getsizeof(nums_list):,} bytes")
+print(f"nums_list is {sys.getsizeof(nums_generator):,} bytes")</code></pre>
+			</section>
+			<section>
+				<p><a href="https://realpython.com/introduction-to-python-generators/" target="_blank">How to Use Generators and
+						<code>yield</code> in Python</a></p>
+			</section>
+			<section>
+				<p>You can make your own generators <br> using the <code>yield</code> keyword.</p>
+				<pre><code data-trim data-noescape class="language-python">def infinite_sequence():
+    num = 0
+    while True:
+        yield num
+        num += 1</code></pre>
+				<aside class="notes">
+					<p>There's more to generators, they are uniquely powerful. Read the Real Python article.</p>
+				</aside>
+			</section>
+
+
+			<!-- <section>
+				<h3>The Rules of Programming</h3>
+				<h4>(so far)</h4>
+				<ol>
+					<li>Think before you program!</li>
+					<li>A program is a human-readable essay on problem-solving that also happens to execute on a computer.</li>
+					<li>The best way to improve your programming and problem-solving skills is to practice!</li>
+					<li>A foolish consistency is the hobgoblin of little minds.</li>
+					<li>Test your code, often and thoroughly!</li>
+				</ol>
+			</section>
+			<section>
+				<h3>The Rules of Programming</h3>
+				<h4>(so far)</h4>
+				<ol start="6">
+					<li>If it was hard to write, it is probably hard to read. Add a comment.</li>
+					<li>All input is evil until proven otherwise.</li>
+					<li>A function should do one thing (and do it well).</li>
+				</ol>
+			</section> -->
+		</div>
+	</div>
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			hash: true,
+			slideNumber: true,
+			showSlideNumber: 'print',
+			help: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
