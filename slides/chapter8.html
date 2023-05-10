@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Chapter 8</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css">
+	<link rel="stylesheet" href="dist/custom.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Chapter 8</h1>
+				<h2>More on Functions</h2>
+			</section>
+			<section>
+				<h3>Every function creates its own namespace (scope).</h3>
+				<p>A function's namespace defines what identifiers are visible to it.</p>
+			</section>
+			<section>
+				<h3>A Contrived Example</h3>
+				<div class="parent twoBy">
+					<div>
+						<figure>
+							<pre><code data-trim data-noescape class="language-python">def greet():
+		b = "world!"
+		print(f"{a} {b}")
+
+a = "Hello"
+
+greet()
+
+print(f"{a} {b}")</code></pre>
+						</figure>
+						<p><a
+								href="https://pythontutor.com/visualize.html#code=def%20greet%28%29%3A%0A%20%20%20%20b%20%3D%20%22world!%22%0A%20%20%20%20print%28f%22%7Ba%7D%20%7Bb%7D%22%29%0A%0Aa%20%3D%20%22Hello%22%0A%0Agreet%28%29%0A%0Aprint%28f%22%7Ba%7D%20%7Bb%7D%22%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"
+								target="_blank">pythontutor.com</a></p>
+					</div>
+					<div class="fragment">
+						<figure>
+							<pre><code data-trim data-noescape class="language-python">def greet():
+		a = "¡Hola"
+		b = "world!"
+		print(f"{a} {b}")
+
+a = "Hello"
+
+# what gets printed?
+greet()</code></pre>
+						</figure>
+						<p><a
+								href="https://pythontutor.com/visualize.html#code=def%20greet%28%29%3A%0A%20%20%20%20a%20%3D%20%22%C2%A1Hola%22%0A%20%20%20%20b%20%3D%20%22world!%22%0A%20%20%20%20print%28f%22%7Ba%7D%20%7Bb%7D%22%29%0A%0Aa%20%3D%20%22Hello%22%0A%0A%23%20what%20gets%20printed%3F%0Agreet%28%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"
+								target="_blank">pythontutor.com</a></p>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h3>LEGB</h3>
+			</section>
+			<section>
+				<h2>Arguments, Parameters, <br> and Namespaces</h2>
+			</section>
+			<section>
+				<p><em class="lbGold">Arguments</em> are normally mapped <br> to <em class="lbGold">parameters</em> by position.
+				</p>
+				<figure>
+					<pre><code data-trim data-noescape class="language-python">def my_function(parameter_1, parameter_2):
+    print(parameter_1, parameter_2)
+
+argument_a = 37
+argument_b = 42
+
+my_function(argument_a, argument_b)
+
+print(argument_a, argument_b)</code></pre>
+				</figure>
+				<p><a
+						href="https://pythontutor.com/python-debugger.html#code=def%20my_function%28parameter_1,%20parameter_2%29%3A%0A%20%20%20%20print%28parameter_1,%20parameter_2%29%0A%20%20%20%20%0Aargument_a%20%3D%2037%0Aargument_b%20%3D%2042%0A%0Amy_function%28argument_a,%20argument_b%29%0A%0Aprint%28argument_a,%20argument_b%29&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"
+						target="_blank">pythontutor.com</a>
+				</p>
+			</section>
+			<section>
+				<p>Positional arguments require some care...</p>
+				<div>
+					<figure>
+						<pre><code data-trim data-noescape class="language-python">def func(name, course):
+		print(f"{name} is teaching {course}")
+
+func("Joe", "CS161")</code></pre>
+					</figure>
+					<p style="text-align: left; margin-left: 48px; margin-bottom: 2rem;">
+						<code>Joe is teaching CS161</code>
+					</p>
+				</div>
+				<div class="fragment">
+					<figure>
+						<pre><code data-trim data-noescape class="language-python">def func(name, course):
+		print(f"{name} is teaching {course}")
+
+func("CS161", "Joe")</code></pre>
+					</figure>
+					<p style="text-align: left; margin-left: 48px; margin-bottom: 2rem;">
+						<code>CS161 is teaching Joe</code>
+					</p>
+				</div>
+				<aside class="notes">
+					<p><strong>Must</strong> be sure the provide arguments in the right order!</p>
+				</aside>
+			</section>
+			<section>
+				<p><em class="lbGold">Keyword arguments</em> are values that, when passed into a function, are identified by
+					specific parameter names.</p>
+				<div>
+					<figure>
+						<pre><code data-trim data-noescape class="language-python">def func(name, course):
+			print(f"{name} is teaching {course}")
+
+func(name="Joe", course="CS161")</code></pre>
+					</figure>
+					<p style="text-align: left; margin-left: 48px; margin-bottom: 2rem;">
+						<code>Joe is teaching CS161</code>
+					</p>
+				</div>
+				<div class="fragment">
+					<figure>
+						<pre><code data-trim data-noescape class="language-python">def func(name, course):
+			print(f"{name} is teaching {course}")
+
+func(course="CS161", name="Joe")</code></pre>
+					</figure>
+					<p style="text-align: left; margin-left: 48px; margin-bottom: 2rem;">
+						<code>Joe is teaching CS161</code>
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2>Advanced Topics</h2>
+			</section>
+			<section>
+				<p style="text-align: left;"><span class="lbGold">Keyword-only arguments</span> require the user to use the
+					parameter name when calling the function and are specified using the "<code>*</code>" marker.</p>
+				<p style="text-align: left;"><span class="lbGold">Positional-only arguments</span> require the user to pass
+					arguments to the function in the order specified by the parameters in the function signature and are specified
+					using the "<code>/</code>" marker.</p>
+			</section>
+			<section>
+				<p style="text-align: left;">Positional-only arguments improve the flexibility of
+					the language in the following ways:</p>
+				<ul>
+					<li>Adds the ability to rename parameters which, in the case of keyword-only arguments, would be a breaking
+						change.</li>
+					<li>Forces users to call functions by specifying arguments by their position only. Here, the name of the
+						argument provides
+						no intrinsic value (such functions include <code>min()</code> and <code>max()</code> among others).</li>
+				</ul>
+			</section>
+			<section>
+				<p style="text-align: left;">Guidelines for when to use positional-only arguments:</p>
+				<ul>
+					<li>When the arguments of a function have no explicit meaning, there is no need to specify a name.</li>
+					<li>When there are only a few arguments that will always be passed in the same order (like <code>min()</code>
+						and <code>max()</code>).</li>
+				</ul>
+			</section>
+			<section>
+				<figure>
+					<img src="images/positional-only-normal-and-keyword-only-arguments.png" alt="types of arguments">
+				</figure>
+			</section>
+			<section>
+				<h3>Default Arguments</h3>
+				<figure>
+					<pre><code data-trim data-noescape class="language-python">def greet(name="there"):
+    print(f"Hello, {name}!")</code></pre>
+				</figure>
+			</section>
+			<section>
+				<h3>Mutable Default Arguments</h3>
+			</section>
+			<section>
+				<p style="text-align: left;">What you wrote:</p>
+				<pre><code data-trim data-noescape class="language-python">>>> def append_to(element, to=[]):
+        to.append(element)
+        return to</code></pre>
+				<p style="text-align: left;">What you expected to happen:</p>
+				<pre><code data-trim data-noescape class="language-python">>>> my_list = append_to(12)
+>>> print(my_list)
+[12]
+>>> my_other_list = append_to(42)
+>>> print(my_other_list)
+[42]</code></pre>
+			</section>
+			<section>
+				<p style="text-align: left;">What you wrote:</p>
+				<pre><code data-trim data-noescape class="language-python">>>> def append_to(element, to=[]):
+        to.append(element)
+        return to</code></pre>
+				<p style="text-align: left;">What actually happens:</p>
+				<pre><code data-trim data-noescape class="language-python">>>> my_list = append_to(12)
+>>> print(my_list)
+[12]
+>>> my_other_list = append_to(42)
+>>> print(my_other_list)
+[12, 42]</code></pre>
+			</section>
+			<section>
+				<p style="text-align: left;">A new list is created <em>once</em> when the function is defined, and the same list
+					is used in each successive call.</p>
+				<p style="text-align: left;">Python's default arguments are evaluated <em class="lbGold">once</em> when the
+					function is defined, not each time the function is called (like it is in say, Ruby). This means that if you
+					use a mutable default argument and mutate it, you will have mutated that object for all future calls to the
+					function as well.</p>
+			</section>
+			<section>
+				<p style="text-align: left;">What you should do instead:</p>
+				<pre><code data-trim data-noescape class="language-python">>>> def append_to(element, to=None):
+        if to is None:
+            to = []
+        to.append(element)
+        return to</code></pre>
+			</section>
+			<section>
+				<h3>pass-by-reference and <br> pass-by-value</h3>
+			</section>
+			<section>
+				<!-- <p style="text-align: left;"></p> -->
+				<ul>
+					<li><span class="lbGold">pass-by-reference</span> means that the argument you're passing to the function is a
+						reference to a variable that already exists in memory rather than an independent copy of that variable.</li>
+					<li><span class="lbGold">pass-by-value</span> means the function gets its own copy of the argument you pass
+						into it.</li>
+				</ul>
+			</section>
+			<section>
+				<ul>
+					<li>For <span class="lbGold">mutable</span> objects, such as <code>lists</code> and <code>dictionaries</code>,
+						Python uses a
+						<span class="lbGold">pass-by-reference</span> mechanism.
+					</li>
+					<li>For <span class="lbGold">immutable</span> objects, such as <code>integers</code>, <code>strings</code>,
+						and <code>tuples</code>,
+						Python uses a <span class="lbGold">pass-by-value</span> mechanism.</li>
+				</ul>
+				<p><a
+						href="https://pythontutor.com/visualize.html#code=def%20modify_list%28lst%29%3A%0A%20%20%20%20lst.append%284%29%0A%0Amy_list%20%3D%20%5B1,%202,%203%5D%0Amodify_list%28my_list%29%0Aprint%28my_list%29%20%20%23%20prints%20%5B1,%202,%203,%204%5D%0A%0A%0Adef%20modify_num%28num%29%3A%0A%20%20%20%20num%20%2B%3D%201%0A%0Amy_num%20%3D%201%0Amodify_num%28my_num%29%0Aprint%28my_num%29%20%20%23%20prints%201&cumulative=false&heapPrimitives=nevernest&mode=edit&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"
+						target="_blank">pythontutor.com</a></p>
+			</section>
+			<section>
+				<h3><code>*args</code> and <code>**kwargs</code></h3>
+			</section>
+			<section>
+				<p style="text-align: left;"><code class="lbGold">*args</code> and <code class="lbGold">**kwargs</code> allow
+					you to pass multiple arguments or keyword arguments to a function.</p>
+				<p style="text-align: left;">Consider the following example. This is a
+					simple function that takes two arguments and returns their sum:</p>
+				<pre><code data-trim data-noescape class="language-python"> def my_sum(a, b):
+					return a + b</code></pre>
+			</section>
+			<section>
+				<pre><code data-trim data-noescape class="language-python"> def my_sum(a, b):
+					return a + b</code></pre>
+				<p style="text-align: left;">This function works fine, but it’s limited to only two arguments.
+					What if you need to sum a varying number of arguments, where the specific number of arguments passed is only
+					known at runtime?</p>
+			</section>
+			<section>
+				<p style="text-align: left;">This is where <code>*args</code> can be really useful, because it allows you to
+					pass a varying number of positional arguments.</p>
+				<pre><code data-trim data-noescape class="language-python">def my_sum(*args):
+    result = 0
+    # Iterating over the Python args tuple
+    for x in args:
+        result += x
+    return result</code></pre>
+			</section>
+			<section>
+				<p style="text-align: left;"><code>**kwargs</code> works just like <code>*args</code>, but instead of accepting
+					positional arguments it accepts keyword (or named) arguments. Take the following example:</p>
+				<pre><code data-trim data-noescape class="language-python">def concatenate(**kwargs):
+		result = ""
+		# Iterating over the Python kwargs dictionary
+		for arg in kwargs.values():
+		  result += arg
+		return result
+
+print(concatenate(a="Programming", b="is", c="fun!"))</code></pre>
+			</section>
+			<section>
+				<h3>Ordering Arguments in a Function</h3>
+				<p style="text-align: left;">Now that you know what <code>*args</code> and <code>**kwargs</code> are, you're
+					ready to start writing
+					functions that take an arbitrary number of arguments. But what if you want to create a function that takes a
+					changeable number of both positional and named arguments?
+				</p>
+			</section>
+			<section>
+				<p style="text-align: left;">You must bear in mind that <strong>order counts</strong>. Just as non-default
+					arguments have to precede default arguments, so <code>*args</code> must come before <code>**kwargs</code>.
+				</p>
+			</section>
+			<section>
+				<p>The correct order for your parameters is:</p>
+
+				<ol>
+					<li>Standard arguments</li>
+					<li><code>*args</code> arguments</li>
+					<li><code>**kwargs</code> arguments</li>
+				</ol>
+			</section>
+			<section>
+				<p>Read more at <a href="https://realpython.com/python-kwargs-and-args/#ordering-arguments-in-a-function"
+						target="_blank">Python args and kwargs: Demystified</a></p>
+			</section>
+
+
+
+			<section>
+				<h3>Functions As Objects</h3>
+			</section>
+
+			<!-- <section>
+				<h3>The Rules of Programming</h3>
+				<h4>(so far)</h4>
+				<ol>
+					<li>Think before you program!</li>
+					<li>A program is a human-readable essay on problem-solving that also happens to execute on a computer.</li>
+					<li>The best way to improve your programming and problem-solving skills is to practice!</li>
+					<li>A foolish consistency is the hobgoblin of little minds.</li>
+					<li>Test your code, often and thoroughly!</li>
+				</ol>
+			</section>
+			<section>
+				<h3>The Rules of Programming</h3>
+				<h4>(so far)</h4>
+				<ol start="6">
+					<li>If it was hard to write, it is probably hard to read. Add a comment.</li>
+					<li>All input is evil until proven otherwise.</li>
+					<li>A function should do one thing (and do it well).</li>
+				</ol>
+			</section> -->
+		</div>
+	</div>
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			hash: true,
+			slideNumber: true,
+			showSlideNumber: 'print',
+			help: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
