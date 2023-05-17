@@ -5,7 +5,11 @@ from pathlib import Path
 
 
 def sanitize_line(line: str) -> list[str]:
-    trans = str.maketrans(string.ascii_uppercase + "’", string.ascii_lowercase + "'", "“" + "”")
+    trans = str.maketrans(
+        string.ascii_uppercase + "’",
+        string.ascii_lowercase + "'",
+        '“”!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~',
+    )
 
     return [
         word.strip(string.punctuation + string.whitespace).translate(trans) for word in line.split()
