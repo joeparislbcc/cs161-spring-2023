@@ -37,6 +37,7 @@ def main():
         for word in words:
             add_word(sanitize_word(word, trans), word_counts)
 
+    print(f"Total word count: {len(word_counts):,}")
     most_common = sorted(word_counts.items(), key=itemgetter(1))
     pprint(most_common[-10:])
 
