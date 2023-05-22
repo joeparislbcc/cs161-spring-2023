@@ -1,8 +1,7 @@
+monkeys.txt
+
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode
-
-### Custom ###
-monkeys.txt
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
@@ -196,14 +195,3 @@ pyrightconfig.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
-
-### Joe's Additions ###
-**assignment*
-slides/demo.html
-slides/index.html
-slides/scratch.html
-!slides/dist
-grading/**
-*solution*
-*solution/**
-office_hours/**
