@@ -17,6 +17,9 @@ class Point:
     def __repr__(self):
         return f"Point({self.x}, {self.y})"
 
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)
+
     def distance(self, other) -> float:
         """Compute the distance between this and another Point."""
         return math.sqrt((self.x - other.x) ** 2 + (self.y - other.y) ** 2)

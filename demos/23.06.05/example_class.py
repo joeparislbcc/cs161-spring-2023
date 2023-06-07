@@ -27,4 +27,4 @@ class ExampleClass:
         The return value of the repr method is used for debugging purposes and
         often looks like a call to the object's init method.
         """
-        return f"Example(param1={self.attribute1}, param2={self.attribute2})"
+        return f"ExampleClass(param1={self.attribute1}, param2={self.attribute2})"
